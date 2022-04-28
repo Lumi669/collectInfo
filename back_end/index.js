@@ -1,14 +1,18 @@
-const http = require('http');
-
-// const hostname = '127.0.0.1';
-const port = 3001;
-
-const server = http.createServer((req, res) => {
-  res.statusCode = 200;
-  res.setHeader('Content-Type', 'text/plain');
-  res.end('Hello World');
+// Requiring module
+const express = require('express');
+const app = express();
+  
+// Handling '/' request
+app.get('/', (req, res) => {
+    res.send('<h2>Hello from Express.js server!!</h2>');
 });
-
-server.listen(port, () => {
-  console.log(`Server running at`);
+  
+// Handling '/about' request
+app.get('/about', (req,res) => {
+    res.send('<h2>GeeksforGeeks- Express.js</h2>');
+});
+  
+// Server setup
+app.listen(8080, () => {
+    console.log('server listening on port 8080');
 });
